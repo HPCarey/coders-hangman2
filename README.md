@@ -26,14 +26,19 @@ Visit the live website here - [Coder's Hangman]().
 * The user would rather take a quick micro-break from the code for a few mintues in order not to lose focus on the problem completely, but needs a bit of a reset in orde to focus on it. 
 
 ### **User Stories**
- * As a visiting user, I want to take a quick break at my computer that won't be too time-cosuming
- * As a visiting user, I want a game that is absorbing but not too challenging so I can relax. 
- * As a user, I would like the game to be somewhat relevant to my learning material so it can be helpful to my progress.
+ * As a visiting user, I want to play a game of hangman.
+ * As a user I want to know how many letters are in the word.
+ * As a user, I want to know whether my guess is correct and to see its position in the word. 
+ * As a user, I want to know when my guess is incorrect.
+ * As a user I want to know which letters I've already guessed.
+ * As a user, I want to know how many lives I have left before I lose.
 
 ### **Site aims**
-* To provide the user with an activity they can do to relax at their computer for a quick micro-break to aid productivity and creativity.
-* To create an activity that allows the user to relax and improve their focus without being too stressful or high stakes. 
-* To provide an activity which exposes the user to  terminology and vocabulary related to programming in order to help user retain information and vocabulary relevant to their learner goals.
+* To show the user a word with blank spaces indicating the number of letters.
+* To inform the user when their guess is correct and display the letter in the correct position in the word.
+* To inform the user when their guess is incorect and visually represent their incorrect guesses with the hangman.
+* To display a list of previously guessed letters to the user.
+* To inform the user how many lives they have left before each guess.
 
  ### **FlowChart**
  The following flowchart acted as the blueprint for the game.
@@ -48,16 +53,16 @@ Visit the live website here - [Coder's Hangman]().
 
 ![Main menu]()
 
+
+## **Future Features**
 * Set Difficulty
   * Easy = 9 lives
   * Normal = 7 lives
   * Hard = 5 lives
 
-## **Future Features**
- 
-## **Testing**
+## **Technologies Used** 
 
-## **Technologies Used**
+## **Testing**
 
 ## **Bugs**
 
