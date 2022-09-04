@@ -61,7 +61,15 @@ Visit the live website here - [Coder's Hangman]().
   * Hard = 5 lives
 
 ## **Technologies Used** 
-
+### Languages 
+* Python
+### Frameworks and Libraries
+* [Github](https://github.com/)
+* [Gitpod](https://gitpod.io/)
+* [Heroku](https://www.heroku.com/)
+* [lucidchart](https://www.lucidchart.com/pages/)
+* [patorjk](https://patorjk.com/software/taag/#p=display&f=Standard&t=Type%20Something%20)
+* [PEP8](http://pep8online.com/)
 ## **Testing**
 
 ## **Bugs**
@@ -78,3 +86,12 @@ Visit the live website here - [Coder's Hangman]().
 * Steps to deploy:
 
 ## **Credits**
+I used the following resources to help me plan, build and fix bugs in my project.
+
+* [How to Build a Hangman Game with Python](https://www.youtube.com/watch?v=JNXmCOumNw0&ab_channel=CBTNuggets)
+* [Python Hangman Beginner to Advanced](https://www.youtube.com/watch?v=3_CX0aD9Fdg&ab_channel=SanjinDedic)
+* [12 Beginner Python Projects - Coding Course](https://www.youtube.com/watch?v=8ext9G7xspg&ab_channel=freeCodeCamp.org)
+* [Python Basics Project Assignment: How To Create Hangman in under 10 minutes!](https://www.youtube.com/watch?v=ynwB-QfOPRw&ab_channel=ShaunHalverson)
+* [How to build HANGMAN with Python in 10 MINUTES](https://www.youtube.com/watch?v=m4nEnsavl6w&ab_channel=Kite)
+
+
