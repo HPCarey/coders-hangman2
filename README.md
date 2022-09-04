@@ -44,7 +44,7 @@ Visit the live website here - [Coder's Hangman]().
  The following flowchart acted as the blueprint for the game.
  I used this to visualize the steps as they would be required in the code. 
 
-![FlowChart](assets/readme/flowchart-2.png) 
+![FlowChart](assets/readme/coders_hangman_flowchart.png) 
 
  ## **Features**
 
