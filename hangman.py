@@ -26,19 +26,20 @@ def validate_user_input():
     letter = ""
     while valid_input is False:
         letter = input("Guess a letter: \n")
-        letter = letter.strip().upper()
-        """
-        CI VIDEO, TRY STATEMENT ?
-        """
+        #CI VIDEO, TRY STATEMENT ?
         if len(letter) <= 0 or len(letter) > 1:
             print("Letter must be one character, not more or less")
         elif letter.isalpha():
             valid_input = True
-            print("Input correct")    
+            user_guess = letter.strip().upper()
+            play_hangman(user_guess)    
         else:
             print("Letter must be an alphabet character")
-    return letter        
-         
+           
+
+def play_hangman(user_guess):
+    print(f'You have seleceted: {user_guess}')
+
 
 
 def main():
