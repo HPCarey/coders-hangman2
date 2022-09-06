@@ -24,6 +24,7 @@ multiple charaters and/or numbers
 def validate_user_input():
     valid_input = False
     letter = ""
+    print("Let's play Hangman!")
     while valid_input is False:
         letter = input("Guess a letter: \n")
         #CI VIDEO, TRY STATEMENT ?
@@ -37,12 +38,30 @@ def validate_user_input():
             print("Letter must be an alphabet character")
            
 
-def play_hangman(values):
+def play_hangman(user_guess):
     word = get_word()
     unknown_word = display_word(word)
-    print(f'You have seleceted: {values}')
+    guessed_letters = []
+    user_won = False
+    print(f'You have seleceted: {user_guess}')
     print(f"the {unknown_word} is {word}")
-    
+    lives = 6
+    print(f'Your guess: {guessed_letters} \n')
+    print(f"Your word: {unknown_word}\n")
+    if user_guess in guessed_letters:
+        print(f"You've already guessed {user_guess}\n")
+    elif user_guess in word:    
+        print(f'Well done! {user_guess} is in the word')
+        guessed_letters.append(user_guess)
+    else:
+        print("Hard luck. Try again!")
+        guessed_letters.append(user_guess)
+        lives -= 1 
+    validate_user_input()    
+   
+
+       
+
 
 
 def main():
