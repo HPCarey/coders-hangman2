@@ -37,9 +37,12 @@ def validate_user_input():
             print("Letter must be an alphabet character")
            
 
-def play_hangman(user_guess):
-    print(f'You have seleceted: {user_guess}')
-
+def play_hangman(values):
+    word = get_word()
+    unknown_word = display_word(word)
+    print(f'You have seleceted: {values}')
+    print(f"the {unknown_word} is {word}")
+    
 
 
 def main():
