@@ -1,5 +1,6 @@
 import random
 from words import words
+import string
 
 """
 Retrieves a random word from the words.py file
@@ -27,40 +28,57 @@ def validate_user_input():
     print("Let's play Hangman!")
     while valid_input is False:
         letter = input("Guess a letter: \n")
-        #CI VIDEO, TRY STATEMENT ?
         if len(letter) <= 0 or len(letter) > 1:
             print("Letter must be one character, not more or less")
         elif letter.isalpha():
             valid_input = True
-            user_guess = letter.strip().upper()
-            play_hangman(user_guess)    
+            user_guess = letter.strip().upper()   
         else:
             print("Letter must be an alphabet character")
+    return user_guess
            
-
-def play_hangman(user_guess):
+def validate_user_guess():
     word = get_word()
-    unknown_word = display_word(word)
+    user_guess = validate_user_input()
     guessed_letters = []
-    user_won = False
-    print(f'You have seleceted: {user_guess}')
-    print(f"the {unknown_word} is {word}")
+    wrong_letters = []
     lives = 6
-    print(f'Your guess: {guessed_letters} \n')
-    print(f"Your word: {unknown_word}\n")
-    if user_guess in guessed_letters:
-        print(f"You've already guessed {user_guess}\n")
-    elif user_guess in word:    
-        print(f'Well done! {user_guess} is in the word')
+    
+    if user_guess in word:
         guessed_letters.append(user_guess)
+        print(f'Correct! {user_guess} is in the word.\n' )
     else:
-        print("Hard luck. Try again!")
-        guessed_letters.append(user_guess)
-        lives -= 1 
-    validate_user_input()    
-   
+        wrong_letters.append(user_guess)
+        lives -= 1
+        print(f'Hard luck! Your lives are {lives} \n')    
 
-       
+def play_hangman():
+    word = get_word()
+    user_guess = validate_user_input()
+    guessed_letters = []
+    wrong_letters = []
+    lives = 6
+    user_won = False
+    #print(f'You have seleceted: {user_guess}')
+    #print(f"the {unknown_word} is {word}")
+    while len(unknown_word) > 0 and lives > 0:
+        print('You have used these letters: ', ' '.join(guessed_letters))
+
+        word_list = [letter if letter in guessed_letters else '_' for letter in word]
+        print('Current word: ', ' '.join(word_list))
+        if user_guess in alphabet - guessed_letters:
+            guessed_letters.add(user_guess)
+            if user_guess in unknown_word:
+                unknown_word.remove(user_guess)
+                print('')
+            else:
+                lives = lives - 1
+                print("Hard luck. Try again!")
+        elif user_guess in guessed_letters:
+            print(f"You've already used: {user_guess}\n")
+        else:
+            print("Guess not valid")
+        break
 
 
 
@@ -68,5 +86,9 @@ def main():
     get_word()
     display_word('word')
     validate_user_input()
+    validate_user_guess()
+    #play_hangman()
 
-main()
+if __name__ == '__main__':
+    """Will only be called when you run the python program from the terminal or an IDE like PyCharms"""
+    main()    
