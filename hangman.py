@@ -2,6 +2,18 @@ import random
 from words import words
 import string
 
+#Global variables
+
+lives = 6
+
+guessed_letters = []
+
+wrong_letters = []
+
+game_over = False
+
+
+
 """
 Retrieves a random word from the words.py file
 """
@@ -46,7 +58,7 @@ def validate_user_guess():
     
     if user_guess in word:
         guessed_letters.append(user_guess)
-        print(f'Correct! {user_guess} is in the word.\n' )
+        print(f'Correct! {user_guess} is in the word.\n')
     else:
         wrong_letters.append(user_guess)
         lives -= 1
