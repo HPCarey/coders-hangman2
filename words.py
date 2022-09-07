@@ -1,4 +1,4 @@
 words = [
-    'test',
+    'data',
     'data',
 ]
