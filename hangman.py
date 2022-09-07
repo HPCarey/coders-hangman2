@@ -1,5 +1,4 @@
 import random
-from words import words
 import string
 
 #Global variables
@@ -10,36 +9,42 @@ guessed_letters = []
 
 wrong_letters = []
 
+game_word = ""
+
 game_over = False
 
+
+def get_word():
+    """Will return a randomly selected word from our predefined list of acceptable words"""
+    global game_word
+
+    acceptable_words = [
+        "data",
+        "data",
+    ]
+    game_word = random.choice(acceptable_words)
+    game_word = game_word.upper()
 
 
 """
 Retrieves a random word from the words.py file
 """
+"""
 def get_word():
     word = random.choice(words)
     return word.upper()
-
-
 """
-Displays the hidden word to the user
-"""
-"""def display_word(word):
-    unknown_word = "-" * len(word)
-    print(f'Your word is {len(word)} letters long: {unknown_word}\n')
-    return unknown_word"""
 
 """
 Displays the hidden word to user
 """
 def display_word():
-    word = get_word()
+    global game_word
     letter = ""
     global guessed_letters
 
-    for i in range(0, len(word)):
-        letter = word[i]
+    for i in range(0, len(game_word)):
+        letter = game_word[i]
         if letter in guessed_letters:
             print(letter, end=" ")
         else:
@@ -72,13 +77,12 @@ def validate_user_input():
 Checks is user's guess is in the word and takes a life if not
 """         
 def validate_user_guess():
-    word = get_word()
     user_guess = validate_user_input()
     global guessed_letters
     global wrong_letters
     global lives 
     
-    if user_guess in word:
+    if user_guess in game_word:
         guessed_letters.append(user_guess)
         print(f'Correct! {user_guess} is in the word.\n')
     else:
@@ -96,15 +100,14 @@ def check_game_over():
     global lives
     global game_over
     global guessed_letters
-    word = get_word()
     user_guess = validate_user_input()
 
     if lives <= 0:
         game_over = True
-        print(f'Hard luck! You lost. The word was {word}\n')
+        print(f'Hard luck! You lost. The word was {game_word}\n')
     else:
         word_guessed = True
-        for user_guess in word:
+        for user_guess in game_word:
             if user_guess not in guessed_letters:
                 word_guessed = False
                 break
