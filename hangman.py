@@ -35,7 +35,16 @@ Displays the hidden word to user
 """
 def display_word():
     word = get_word()
-    global guessed_letters()
+    letter = ""
+    global guessed_letters
+
+    for i in range(0, len(word)):
+        letter = word[i]
+        if letter in guessed_letters:
+            print(letter, end=" ")
+        else:
+            print("_", end=" ")
+    print("")        
 
 """
 Checks the user has typed only one alphabet character and not 
@@ -83,10 +92,10 @@ def validate_user_guess():
 """
 Checks for the status of the lives and the word letters to determine game over
 """
-def game_over():
+def check_game_over():
     global lives
-    global game_over()
-    global guessed_letters()
+    global game_over
+    global guessed_letters
     word = get_word()
     user_guess = validate_user_input()
 
@@ -101,7 +110,7 @@ def game_over():
                 break
         if word_guessed:
             game_over = True
-            print(f'You guessed the word! Congratulations\n')    
+            print('You guessed the word! Congratulations\n')    
 
 
 def main():
@@ -110,17 +119,17 @@ def main():
     global guessed_letters
     global wrong_letters
 
-game_over = False
+    game_over = False
     print("Let's play Hangman!")
     get_word()
-    display_word(word)
-
-    while game_over is False:
-        display_word('word')
-    validate_user_input()
-    validate_user_guess()
     
-
-if __name__ == '__main__':
-    """Will only be called when you run the python program from the terminal or an IDE like PyCharms"""
-    main()    
+    while game_over is False:
+        display_word()
+        
+        if len(wrong_letters) > 0:
+            print(f"Incorrect guesses: {wrong_letters}\n ")
+        validate_user_input()
+        validate_user_guess()
+        check_game_over()
+    
+main()    
