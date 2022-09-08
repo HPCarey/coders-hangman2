@@ -1,7 +1,7 @@
 import random
-import string
+import time
 
-#Global variables
+# Global variables
 
 lives = 6
 
@@ -14,8 +14,13 @@ game_word = ""
 game_over = False
 
 
+"""
+Will return a randomly selected word from our predefine
+list of acceptable words
+"""
+
+
 def get_word():
-    """Will return a randomly selected word from our predefined list of acceptable words"""
     global game_word
 
     acceptable_words = [
@@ -38,6 +43,8 @@ def get_word():
 """
 Displays the hidden word to user
 """
+
+
 def display_word():
     global game_word
     letter = ""
@@ -49,13 +56,16 @@ def display_word():
             print(letter, end=" ")
         else:
             print("_", end=" ")
-    print("")        
+    print("")
+
 
 """
-Checks the user has typed only one alphabet character and not 
+Checks the user has typed only one alphabet character and not
 multiple charaters and/or numbers.
 Warns user if they choose a letter they have already chosen.
 """
+
+
 def validate_user_input():
     valid_input = False
     letter = ""
@@ -65,37 +75,43 @@ def validate_user_input():
             print("Letter must be one character, not more or less")
         elif letter.isalpha():
             if letter in guessed_letters or letter in wrong_letters:
-                print(f'You have already guessed {letter}. Try a different one.\n')
+                print(f'You have already guessed {letter}.\n')
             else:
                 valid_input = True
-                user_guess = letter.strip().upper()   
+                user_guess = letter.strip().upper()
         else:
             print("Letter must be an alphabet character")
     return user_guess
 
+
 """
 Checks is user's guess is in the word and takes a life if not
-"""         
+"""
+
+
 def validate_user_guess():
     user_guess = validate_user_input()
     global guessed_letters
     global wrong_letters
-    global lives 
-    
+    global lives
+
     if user_guess in game_word:
         guessed_letters.append(user_guess)
         print(f'Correct! {user_guess} is in the word.\n')
     else:
         wrong_letters.append(user_guess)
         lives -= 1
-        print(f'Hard luck {user_guess} is not in the word!\n') 
+        print(f'Hard luck {user_guess} is not in the word!\n')
     print(f'You have {lives} lives remaining \n')
     print(f'correct {guessed_letters}\n')
-    print(f'wrong {wrong_letters}\n')   
+    print(f'wrong {wrong_letters}\n')
+
 
 """
 Checks for the status of the lives and the word letters to determine game over
 """
+
+
 def check_game_over():
     global lives
     global game_over
@@ -113,7 +129,7 @@ def check_game_over():
                 break
         if word_guessed:
             game_over = True
-            print('You guessed the word! Congratulations\n')    
+            print('You guessed the word! Congratulations\n')
 
 
 def main():
@@ -125,14 +141,15 @@ def main():
     game_over = False
     print("Let's play Hangman!")
     get_word()
-    
+
     while game_over is False:
         display_word()
-        
+
         if len(wrong_letters) > 0:
             print(f"Incorrect guesses: {wrong_letters}\n ")
         validate_user_input()
         validate_user_guess()
         check_game_over()
-    
-main()    
+
+
+main()
