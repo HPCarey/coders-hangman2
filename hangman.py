@@ -27,6 +27,8 @@ def get_word():
         "data",
         "data",
     ]
+
+    random.seed(time.time())
     game_word = random.choice(acceptable_words)
     game_word = game_word.upper()
 
@@ -47,7 +49,6 @@ Displays the hidden word to user
 
 def display_word():
     global game_word
-    letter = ""
     global guessed_letters
 
     for i in range(0, len(game_word)):
@@ -65,22 +66,90 @@ multiple charaters and/or numbers.
 Warns user if they choose a letter they have already chosen.
 """
 
+def display_hangman():
+    global lives
+
+    if lives_left == 6:
+        print("+------------+")
+        print("|            |")
+        print("|")
+        print("|")
+        print("|")
+        print("|")
+        print("|")
+        print("+-------+")
+    elif lives_left == 5:
+        print("+------------+")
+        print("|            |")
+        print("|            O")
+        print("|")
+        print("|")
+        print("|")
+        print("|")
+        print("+-------+")
+    elif lives_left == 4:
+        print("+------------+")
+        print("|            |")
+        print("|            O")
+        print("|            |")
+        print("|")
+        print("|")
+        print("|")
+        print("+-------+")
+    elif lives_left == 3:
+        print("+------------+")
+        print("|            |")
+        print("|            O")
+        print("|            |")
+        print("|           /")
+        print("|")
+        print("|")
+        print("+-------+")
+    elif lives_left == 2:
+        print("+------------+")
+        print("|            |")
+        print("|            O")
+        print("|            |")
+        print("|           / \\")
+        print("|")
+        print("|")
+        print("+-------+")
+    elif lives_left == 1:
+        print("+------------+")
+        print("|            |")
+        print("|            O")
+        print("|            |\\")
+        print("|           / \\")
+        print("|")
+        print("|")
+        print("+-------+")
+    elif lives_left == 0:
+        print("+------------+")
+        print("|            |")
+        print("|            O")
+        print("|           /|\\")
+        print("|           / \\")
+        print("|")
+        print("|")
+        print("+-------+")
+
 
 def validate_user_input():
     valid_input = False
-    letter = ""
+    user_guess = ""
     while valid_input is False:
-        letter = input("Guess a letter: \n")
-        if len(letter) <= 0 or len(letter) > 1:
+        user_guess = input("Guess a letter: \n")
+        user_guess = user_guess.strip().upper()
+        if len(user_guess) <= 0 or len(user_guess) > 1:
             print("Letter must be one character, not more or less")
-        elif letter.isalpha():
-            if letter in guessed_letters or letter in wrong_letters:
-                print(f'You have already guessed {letter}.\n')
+        elif user_guess.isalpha():
+            if user_guess in guessed_letters or user_guess in wrong_letters:
+                print(f'You have already guessed {user_guess}.\n')
             else:
                 valid_input = True
-                user_guess = letter.strip().upper()
         else:
             print("Letter must be an alphabet character")
+
     return user_guess
 
 
@@ -90,11 +159,11 @@ Checks is user's guess is in the word and takes a life if not
 
 
 def validate_user_guess():
-    user_guess = validate_user_input()
     global guessed_letters
     global wrong_letters
     global lives
 
+    user_guess = validate_user_input()
     if user_guess in game_word:
         guessed_letters.append(user_guess)
         print(f'Correct! {user_guess} is in the word.\n')
@@ -120,6 +189,7 @@ def check_game_over():
 
     if lives <= 0:
         game_over = True
+        display_hangman()
         print(f'Hard luck! You lost. The word was {game_word}\n')
     else:
         word_guessed = True
