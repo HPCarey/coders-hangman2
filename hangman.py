@@ -34,15 +34,6 @@ def get_word():
 
 
 """
-Retrieves a random word from the words.py file
-"""
-"""
-def get_word():
-    word = random.choice(words)
-    return word.upper()
-"""
-
-"""
 Displays the hidden word to user
 """
 
@@ -66,10 +57,11 @@ multiple charaters and/or numbers.
 Warns user if they choose a letter they have already chosen.
 """
 
+
 def display_hangman():
     global lives
 
-    if lives_left == 6:
+    if lives == 6:
         print("+------------+")
         print("|            |")
         print("|")
@@ -78,25 +70,25 @@ def display_hangman():
         print("|")
         print("|")
         print("+-------+")
-    elif lives_left == 5:
-        print("+------------+")
-        print("|            |")
-        print("|            O")
-        print("|")
-        print("|")
-        print("|")
-        print("|")
-        print("+-------+")
-    elif lives_left == 4:
+    elif lives == 5:
         print("+------------+")
         print("|            |")
         print("|            O")
+        print("|")
+        print("|")
+        print("|")
+        print("|")
+        print("+-------+")
+    elif lives == 4:
+        print("+------------+")
+        print("|            |")
+        print("|            O")
         print("|            |")
         print("|")
         print("|")
         print("|")
         print("+-------+")
-    elif lives_left == 3:
+    elif lives == 3:
         print("+------------+")
         print("|            |")
         print("|            O")
@@ -105,7 +97,7 @@ def display_hangman():
         print("|")
         print("|")
         print("+-------+")
-    elif lives_left == 2:
+    elif lives == 2:
         print("+------------+")
         print("|            |")
         print("|            O")
@@ -114,7 +106,7 @@ def display_hangman():
         print("|")
         print("|")
         print("+-------+")
-    elif lives_left == 1:
+    elif lives == 1:
         print("+------------+")
         print("|            |")
         print("|            O")
@@ -123,7 +115,7 @@ def display_hangman():
         print("|")
         print("|")
         print("+-------+")
-    elif lives_left == 0:
+    elif lives == 0:
         print("+------------+")
         print("|            |")
         print("|            O")
@@ -171,9 +163,6 @@ def validate_user_guess():
         wrong_letters.append(user_guess)
         lives -= 1
         print(f'Hard luck {user_guess} is not in the word!\n')
-    print(f'You have {lives} lives remaining \n')
-    print(f'correct {guessed_letters}\n')
-    print(f'wrong {wrong_letters}\n')
 
 
 """
@@ -185,7 +174,7 @@ def check_game_over():
     global lives
     global game_over
     global guessed_letters
-    user_guess = validate_user_input()
+    global game_word
 
     if lives <= 0:
         game_over = True
@@ -193,33 +182,32 @@ def check_game_over():
         print(f'Hard luck! You lost. The word was {game_word}\n')
     else:
         word_guessed = True
-        for user_guess in game_word:
-            if user_guess not in guessed_letters:
+        for letter in game_word:
+            if letter not in guessed_letters:
                 word_guessed = False
                 break
         if word_guessed:
             game_over = True
             print('You guessed the word! Congratulations\n')
+            print(f'The word was {game_word}')
 
 
 def main():
     global game_over
-    global lives
-    global guessed_letters
-    global wrong_letters
-
-    game_over = False
     print("Let's play Hangman!")
     get_word()
 
     while game_over is False:
+        display_hangman()
         display_word()
 
         if len(wrong_letters) > 0:
             print(f"Incorrect guesses: {wrong_letters}\n ")
-        validate_user_input()
+
         validate_user_guess()
         check_game_over()
 
 
-main()
+if __name__ == '__main__':
+    """Will only be called when you run the python program from the terminal or an IDE like PyCharms"""
+    main()
