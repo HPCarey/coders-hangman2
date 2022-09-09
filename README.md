@@ -94,4 +94,8 @@ I used the following resources to help me plan, build and fix bugs in my project
 * [Python Basics Project Assignment: How To Create Hangman in under 10 minutes!](https://www.youtube.com/watch?v=ynwB-QfOPRw&ab_channel=ShaunHalverson)
 * [How to build HANGMAN with Python in 10 MINUTES](https://www.youtube.com/watch?v=m4nEnsavl6w&ab_channel=Kite)
 
+websites:
+[Python related vocab](https://www.pythonforbeginners.com/python-glossary)
+[w3schools python glossary](https://www.w3schools.com/python/python_ref_glossary.asp)
+
 

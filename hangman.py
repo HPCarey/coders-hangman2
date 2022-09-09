@@ -1,5 +1,6 @@
 import random
 import time
+from words import words
 
 # Global variables
 
@@ -25,13 +26,8 @@ list of acceptable words
 def get_word():
     global game_word
 
-    acceptable_words = [
-        "data",
-        "data",
-    ]
-
     random.seed(time.time())
-    game_word = random.choice(acceptable_words)
+    game_word = random.choice(words)
     game_word = game_word.upper()
 
 
@@ -219,11 +215,11 @@ def replay_game():
             restart_game = True
             get_word()
         elif restart == "N":
-            print('OK, goodbye')
+            print('OK, goodbye!\n')
             break
         else:
             print('You must type N or Y.\n')
-            print(f'You typed {restart}. Please try again')
+            print(f'You typed {restart}. Please try again\n')
 
 
 def main():
@@ -239,9 +235,7 @@ def main():
             print(f"Incorrect guesses: {wrong_letters}\n ")
 
         validate_user_guess()
-        check_game_over()
-        
-        
+        check_game_over()  
 
 
 if __name__ == '__main__':
