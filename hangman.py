@@ -14,6 +14,8 @@ game_word = ""
 game_over = False
 
 
+
+
 """
 Will return a randomly selected word from our predefine
 list of acceptable words
@@ -133,14 +135,14 @@ def validate_user_input():
         user_guess = input("Guess a letter: \n")
         user_guess = user_guess.strip().upper()
         if len(user_guess) <= 0 or len(user_guess) > 1:
-            print("Letter must be one character, not more or less")
+            print("Letter must be one character, not more or less\n")
         elif user_guess.isalpha():
             if user_guess in guessed_letters or user_guess in wrong_letters:
                 print(f'You have already guessed {user_guess}.\n')
             else:
                 valid_input = True
         else:
-            print("Letter must be an alphabet character")
+            print("Letter must be an alphabet character\n")
 
     return user_guess
 
@@ -181,6 +183,7 @@ def check_game_over():
         display_hangman()
         display_word()
         print(f'Hard luck! You lost. The word was {game_word}\n')
+        replay_game()
     else:
         word_guessed = True
         for letter in game_word:
@@ -192,7 +195,35 @@ def check_game_over():
             display_hangman()
             display_word()
             print('You guessed the word! Congratulations\n')
-            print(f'The word was {game_word}')
+            print(f'The word was {game_word}\n')
+            replay_game()
+
+
+def replay_game():
+    global lives
+    global game_over
+    global wrong_letters
+    global guessed_letters
+    global game_word
+    restart_game = False
+    
+    while not restart_game:
+        restart = input('Would you like to play again? Y/N \n')
+        restart = restart.strip().upper()
+        if restart == "Y":
+            lives = 6
+            guessed_letters = []
+            wrong_letters = []
+            game_word = ""
+            game_over = False
+            restart_game = True
+            get_word()
+        elif restart == "N":
+            print('OK, goodbye')
+            break
+        else:
+            print('You must type N or Y.\n')
+            print(f'You typed {restart}. Please try again')
 
 
 def main():
@@ -209,6 +240,8 @@ def main():
 
         validate_user_guess()
         check_game_over()
+        
+        
 
 
 if __name__ == '__main__':
