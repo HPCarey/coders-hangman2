@@ -182,6 +182,7 @@ def check_game_over():
 
     if lives <= 0:
         game_over = True
+        os.system("clear")
         display_hangman()
         display_word()
         print(f'Hard luck! You lost. The word was {game_word}\n')
@@ -194,12 +195,14 @@ def check_game_over():
                 break
         if word_guessed:
             game_over = True
+            os.system("clear") 
             display_hangman()
             display_word()
             print('You guessed the word! Congratulations\n')
             print(f'The word was {game_word}\n')
             replay_game()
-    os.system("clear")       
+    os.system("clear") 
+          
 
 
 def replay_game():
