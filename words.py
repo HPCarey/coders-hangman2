@@ -16,4 +16,5 @@ words = [
     'operator',
     'loop',
     'keyword',
+    'test',
 ]

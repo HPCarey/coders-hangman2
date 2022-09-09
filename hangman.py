@@ -1,5 +1,6 @@
 import random
 import time
+import os
 from words import words
 
 # Global variables
@@ -152,15 +153,20 @@ def validate_user_guess():
     global guessed_letters
     global wrong_letters
     global lives
+    user_correct = False
 
     user_guess = validate_user_input()
     if user_guess in game_word:
+        user_correct is True
         guessed_letters.append(user_guess)
         print(f'Correct! {user_guess} is in the word.\n')
     else:
+        user_correct is False
         wrong_letters.append(user_guess)
         lives -= 1
         print(f'Hard luck {user_guess} is not in the word!\n')
+        print(f'You have {lives} lives.\n')
+    return user_correct
 
 
 """
@@ -193,6 +199,7 @@ def check_game_over():
             print('You guessed the word! Congratulations\n')
             print(f'The word was {game_word}\n')
             replay_game()
+    os.system("clear")       
 
 
 def replay_game():
@@ -231,11 +238,13 @@ def main():
         display_hangman()
         display_word()
 
+
         if len(wrong_letters) > 0:
             print(f"Incorrect guesses: {wrong_letters}\n ")
-
-        validate_user_guess()
-        check_game_over()  
+            print(f'You have {lives} lives.\n')
+            
+        validate_user_guess()   
+        check_game_over()
 
 
 if __name__ == '__main__':
