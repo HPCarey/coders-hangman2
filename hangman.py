@@ -252,4 +252,10 @@ def main():
 
 if __name__ == '__main__':
     """Will only be called when you run the python program from the terminal or an IDE like PyCharms"""
+
+    print("""Hello! Welcom to CODER'S HANGMAN!\n
+Test your knowledge of programming related
+vocabulary! \n""")
+    
+    input("PRESS ANY KEY TO START THE GAME.\n >>> ")
     main()
