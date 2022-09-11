@@ -1,6 +1,7 @@
 import random
 import time
 import os
+import sys
 from words import words
 
 # Global variables
@@ -132,15 +133,23 @@ def validate_user_input():
         user_guess = input("Guess a letter: \n")
         user_guess = user_guess.strip().upper()
         if len(user_guess) <= 0 or len(user_guess) > 1:
-            print("Letter must be one character, not more or less\n")
+            os.system("clear")
+            display_hangman()
+            display_word()
+            print("Letter must be one character, not more or less.\n")       
         elif user_guess.isalpha():
             if user_guess in guessed_letters or user_guess in wrong_letters:
-                print(f'You have already guessed {user_guess}.\n')
+                os.system("clear")
+                display_hangman()
+                display_word()
+                print(f'You have already guessed {user_guess}.\n')       
             else:
                 valid_input = True
         else:
-            print("Letter must be an alphabet character\n")
-
+            os.system("clear")
+            display_hangman()
+            display_word()
+            print("Letter must be an alphabet character\n")         
     return user_guess
 
 
@@ -201,7 +210,7 @@ def check_game_over():
             print('You guessed the word! Congratulations\n')
             print(f'The word was {game_word}\n')
             replay_game()
-    os.system("clear") 
+    os.system("clear")
           
 
 
@@ -226,7 +235,7 @@ def replay_game():
             get_word()
         elif restart == "N":
             print('OK, goodbye!\n')
-            break
+            sys.exit()
         else:
             print('You must type N or Y.\n')
             print(f'You typed {restart}. Please try again\n')
@@ -254,8 +263,13 @@ if __name__ == '__main__':
     """Will only be called when you run the python program from the terminal or an IDE like PyCharms"""
 
     print("""Hello! Welcom to CODER'S HANGMAN!\n
-Test your knowledge of programming related
-vocabulary! \n""")
-    
+Test your knowledge of programming related vocabulary!\n
+Rules:
+1. Type a letter and click enter to make a guess for the mystery word.
+2. You have 6 lives. 
+3. Once you have run out of lives and you guess an incorrect letter,
+you will lose the game and the full hangman will be displayed.
+ \n""")
+
     input("PRESS ANY KEY TO START THE GAME.\n >>> ")
     main()
