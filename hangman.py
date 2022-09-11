@@ -62,68 +62,90 @@ def display_hangman():
     global lives
 
     if lives == 6:
-        print("+------------+")
-        print("|            |")
-        print("|")
-        print("|")
-        print("|")
-        print("|")
-        print("|")
-        print("+-------+")
+        print(
+            """
+    ______________
+     |/      
+     |      
+     | 
+     |       
+     |      
+     |
+  ___|___
+
+""")
     elif lives == 5:
-        print("+------------+")
-        print("|            |")
-        print("|            O")
-        print("|")
-        print("|")
-        print("|")
-        print("|")
-        print("+-------+")
+        print(
+    """
+     ____________
+     |/      |
+     |      (_)
+     |       
+     |   
+     |        
+     |
+  ___|___
+""")
     elif lives == 4:
-        print("+------------+")
-        print("|            |")
-        print("|            O")
-        print("|            |")
-        print("|")
-        print("|")
-        print("|")
-        print("+-------+")
+        print(
+    """
+     ____________
+     |/      |
+     |      (_)
+     |       |
+     |       |
+     |        
+     |
+  ___|___
+""")
     elif lives == 3:
-        print("+------------+")
-        print("|            |")
-        print("|            O")
-        print("|            |")
-        print("|           /")
-        print("|")
-        print("|")
-        print("+-------+")
+        print(
+    """
+     ____________
+     |/      |
+     |      (_)
+     |      \|
+     |       |
+     |        
+     |
+  ___|___
+""")
     elif lives == 2:
-        print("+------------+")
-        print("|            |")
-        print("|            O")
-        print("|            |")
-        print("|           / \\")
-        print("|")
-        print("|")
-        print("+-------+")
+        print(
+    """
+     ____________
+     |/      |
+     |      (_)
+     |      \|/
+     |       |
+     |        
+     |
+  ___|___
+""")
     elif lives == 1:
-        print("+------------+")
-        print("|            |")
-        print("|            O")
-        print("|            |\\")
-        print("|           / \\")
-        print("|")
-        print("|")
-        print("+-------+")
+        print(
+    """
+     ____________
+     |/      |
+     |      (_)
+     |      \|/
+     |       |
+     |        \\
+     |
+  ___|___
+""")
     elif lives == 0:
-        print("+------------+")
-        print("|            |")
-        print("|            O")
-        print("|           /|\\")
-        print("|           / \\")
-        print("|")
-        print("|")
-        print("+-------+")
+        print(
+    """
+     ____________
+     |/      |
+     |      (_)
+     |      \|/
+     |       |
+     |      / \\
+     |
+  ___|___
+""")
 
 
 def validate_user_input():
@@ -234,9 +256,13 @@ def replay_game():
             restart_game = True
             get_word()
         elif restart == "N":
+            os.system("clear")
             print('OK, goodbye!\n')
             sys.exit()
         else:
+            os.system("clear")
+            display_hangman()
+            display_word()
             print('You must type N or Y.\n')
             print(f'You typed {restart}. Please try again\n')
 
@@ -272,4 +298,5 @@ you will lose the game and the full hangman will be displayed.
  \n""")
 
     input("PRESS ANY KEY TO START THE GAME.\n >>> ")
+    os.system("clear")
     main()
