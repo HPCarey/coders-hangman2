@@ -17,13 +17,14 @@ game_word = ""
 game_over = False
 
 
-"""
-Will return a randomly selected word from the predefined
-list of words in the word.py file.
-"""
+
 
 
 def get_word():
+    """
+    Will return a randomly selected word from the predefined
+    list of words in the word.py file.
+    """
     global game_word
 
     random.seed(time.time())
@@ -31,12 +32,10 @@ def get_word():
     game_word = game_word.upper()
 
 
-"""
-Displays the hidden word to user and the correct letters once guessed
-"""
-
-
 def display_word():
+    """
+    Displays the hidden word to user and the correct letters once guessed
+    """
     global game_word
     global guessed_letters
 
@@ -49,13 +48,11 @@ def display_word():
     print("\n")
 
 
-"""
-Prints out different stages of the hangman based on
-the user's number of lives.
-"""
-
-
 def display_hangman():
+    """
+    Prints out different stages of the hangman based on
+    the user's number of lives.
+    """
     global lives
 
     if lives == 6:
@@ -145,14 +142,13 @@ def display_hangman():
 """)
 
 
-"""
-Checks the user has typed only one alphabet character and not
-multiple charaters and/or numbers.
-Warns user if they choose a letter they have already chosen.
-"""
-
 
 def validate_user_input():
+    """
+    Checks the user has typed only one alphabet character and not
+    multiple charaters and/or numbers.
+    Warns user if they choose a letter they have already chosen.
+    """
     valid_input = False
     user_guess = ""
     while valid_input is False:
@@ -187,14 +183,12 @@ def validate_user_input():
     return user_guess
 
 
-"""
-Checks whether user's guess is in the word and takes a life if not.
-If user guess is correct, appends user guess to guessed_letters variable.
-If user guess is incorrect, appends user guess to wrong_letters varable
-"""
-
-
 def validate_user_guess():
+    """
+    Checks whether user's guess is in the word and takes a life if not.
+    If user guess is correct, appends user guess to guessed_letters variable.
+    If user guess is incorrect, appends user guess to wrong_letters varable
+    """
     global guessed_letters
     global wrong_letters
     global lives
@@ -202,26 +196,21 @@ def validate_user_guess():
 
     user_guess = validate_user_input()
     if user_guess in game_word:
-        print(f'Correct! {user_guess} is in the word.\n')
         user_correct is True
         guessed_letters.append(user_guess)
     else:
         user_correct is False
-        print(f'Hard luck {user_guess} is not in the word!\n')
-        print(f'You have {lives} lives.\n')
         wrong_letters.append(user_guess)
         lives -= 1
 
     return user_correct
 
 
-"""
-Checks for the status of the lives and the word letters to determine game over.
-If game over is true, calls the replay_game function.
-"""
-
-
 def check_game_over():
+    """
+    Checks for the status of the lives and the word letters to determine game over.
+    If game over is true, calls the replay_game function.
+    """
     global lives
     global game_over
     global guessed_letters
@@ -251,15 +240,14 @@ def check_game_over():
     os.system("clear")
 
 
-"""
-Gives user an input option to either play another game or
-exit the programme.
-If user selects option to play again,
-resets global variables to empty values and resets lives to 6.
-"""
-
-
 def replay_game():
+    """
+    Gives user an input option to either play another game or
+    exit the programme.
+    If user selects option to play again,
+    resets global variables to empty values and resets lives to 6.
+    """
+
     global lives
     global game_over
     global wrong_letters
@@ -291,6 +279,9 @@ def replay_game():
 
 
 def main():
+    """
+    Calls all the functions in the order they are needed to run the game
+    """
     global game_over
     print("Let's play Hangman!")
     get_word()
@@ -307,8 +298,10 @@ def main():
 
 
 if __name__ == '__main__':
-    """Will only be called when you run the python program
-     from the terminal or an IDE like PyCharms"""
+    """
+    Will only be called when you run the python program
+    from the terminal or an IDE like PyCharms
+    """
 
     print("""Hello! Welcome to CODER'S HANGMAN!\n
 Test your knowledge of programming related vocabulary!\n
