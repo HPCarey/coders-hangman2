@@ -49,13 +49,21 @@ Visit the live website here - [Coder's Hangman](https://coders-hangman.herokuapp
  ## **Features**
 
  ### **Existing Features**
+ ### Main Menu
+ ![Main menu](assets/readme/welcome_message.png)
+ * The main menu will display a welcome message telling the user about coder's hangman and how to play. 
+ * The user will be asked to press any key to start playing.
 
+### The display
+![Game Display](assets/readme/game_display.png)
+* The display shows the user an empty hangman and some dashes to represent the unknown word and its number of letters.
+* The input instruction tells the user to guess a letter
 
-![Main menu]()
+### The Input Validation
 
 
 ## **Future Features**
-* Set Difficulty
+### Set Difficulty
   * Easy = 9 lives
   * Normal = 7 lives
   * Hard = 5 lives
