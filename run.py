@@ -48,6 +48,7 @@ def display_word():
             print("_", end=" ")
     print("\n")
 
+
 """
 Prints out different stages of the hangman based on
 the user's number of lives.
@@ -143,6 +144,7 @@ def display_hangman():
   ___|___
 """)
 
+
 """
 Checks the user has typed only one alphabet character and not
 multiple charaters and/or numbers.
@@ -161,6 +163,7 @@ def validate_user_input():
             display_hangman()
             display_word()
             print(f"Incorrect guesses: {wrong_letters}\n ")
+            print(F'You typed {user_guess}')
             print("Letter must be one character, not more or less.\n")
             print(f'You have {lives} lives.\n')
         elif user_guess.isalpha():
@@ -178,6 +181,7 @@ def validate_user_input():
             display_hangman()
             display_word()
             print(f"Incorrect guesses: {wrong_letters}\n ")
+            print(F'You typed {user_guess}')
             print("Letter must be an alphabet character\n")
             print(f'You have {lives} lives.\n')
     return user_guess

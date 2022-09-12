@@ -10,15 +10,18 @@ Visit the live website here - [Coder's Hangman](https://coders-hangman.herokuapp
  * [**Planning Stage**](#planning-stage)
  * [**Features**](#features)
  * [**Technologies Used**](#technologies-used)
- * [**Libraries Used**](#libraries-used)
+ * [**Frameworks and Libraries**](#frameworks-and-libraries)
  * [**Testing**](#testing)
- * [**Bugs**](#bugs)
- * [**Validators**](#validators)
+    * [**Validators**](#validators)
+    * [**User Stories Testing**](#user-stories-testing)
+    * [**Manual Testing**](#manual-testing)
+    * [**Bugs**](#bugs)
+ 
  * [**Deployment**](#deployment)
  * [**Credits**](#credits)
 
 ## **Planning Stage**
-### **Intended Users**
+### Intended Users
 * The intended user is any student or programmer who needs to take a quick break from a piece of code that might be causing them problems.
 * The user would rather take a quick micro-break from the code for a few mintues in order not to lose focus on the problem completely, but needs a bit of a reset in orde to focus on it. 
 
@@ -60,7 +63,7 @@ Visit the live website here - [Coder's Hangman](https://coders-hangman.herokuapp
 ## **Technologies Used** 
 ### Languages 
 * Python
-### Frameworks and Libraries
+### **Frameworks and Libraries**
 * [Github](https://github.com/)
 * [Gitpod](https://gitpod.io/)
 * [Heroku](https://www.heroku.com/)
@@ -70,7 +73,7 @@ Visit the live website here - [Coder's Hangman](https://coders-hangman.herokuapp
 * [PEP8](http://pep8online.com/)
 ## **Testing**
 ### PEP 8 Online
-
+## **Validators**
 The [PEP8](http://pep8online.com/) Validator Service was used to validate every Python file in the project to ensure there were no major errors in the code.
 
 Initial tests showed no errors for the word.py file contiaining the word list for hangman, but quite a few errors for the main run.py file. Most of these were easliy fixed blank space errors or blank line errors and amounted to no significant problems running the code. 
@@ -80,7 +83,7 @@ After fixing all but one of the errors, I was left with a
 ![PEP8]().
 * No errors or warnings were found during the testing of the code in PEP8
 
-### User Stories
+### **User Stories Testing**
 1. As a visiting user, I want to play a game of hangman.
     * Once the program starts running, the user will see a welcome message explaining the game and the rules and inviting them to press any key if they wish to start playing.  
 2.  As a user I want to know how many letters are in the word.
@@ -92,24 +95,47 @@ After fixing all but one of the errors, I was left with a
     * When the user guesses a letter that is not in the word it will be displayed in the incorrect guesses list.
     * The user will also be able to see their lives being reduced with each incorrect guess both by the hangman display and the message counting the number of lives for the user.
 
-### Manual Testing
-1. User input - check that all user inputs are correct and if not that the appropriate error message is shown.
-    * Ensure error message shows when user enters to many or not enough characters.
-    * Ensure error message informs user that they must choose a letter when they choose a non- alphabetic character
+### **Manual Testing**
+1. User input - check for valid user inputs and if not valid ensure the appropriate error message is shown.
+    * Ensure error message displays when user enters too many or not enough characters.
+    * Ensure error message informs user that they must choose a letter when they choose a non- alphabetic character.
     * Ensure error message informs user when they repeat a guess.
-3. Score
+2. Score
     * Ensure that lives and guessed letters lists are not affected by incorrect user input.
     * Check that terminal clears after each user input and only displays the currect relevant information to the user. 
     * Ensure that hangman display matches lives count. 
+    * Ensure that previously guessed letters are added to the correct lists and displayed to the user accordingly.
+    
 
 ## **Bugs**
 
 ### **Fixed Bugs**
+I have detailed some of the sources I used to fix bugs in the Credit section. Some of the main issues that were resolved were:
+1. In the restart_game function I was initially using break to stop the while loop and exit the user from the program. However, the goodbye message wasn't showing and the program stopped quite suddenly. I found some articles which suggested using sys.exit() would be better for exiting the program so implemented it and that also solved the issue with the goodbye message. 
+
+Source: [stack overflow](https://stackoverflow.com/questions/14639077/how-to-use-sys-exit-in-python)
+ 
+
+2. I had a lot of issues with the diplay_word function whhich wasn't correctly displaying the random word for the hangman game or the user's guesses in the random word.
+    * By looking through the problems in the gitpod  terminal, I was able to see that I had named variable that weren't being used in the function. I was trying to use the user_guess variable in the for loop but it ended up causing an error. 
+    * Once I started to use a local variable letter it worked. 
+
+3. Another bug was that the user's guesses were decrementing the lives even when they were repeat guesses.
+    * I had to watch through some youtube videos and in the end I ended up making global variables to store these values in so that they would be accessible from all the functions. And used the append() method to add the user guesses.
+
+4. I wanted to use os.system("clear") to keep the terminal clean and readable. I initially put it after the check_game_over function call in the main() function. However this led to all the display being cleared and I wanted the hangman, word, guesses and lives to alway be displayed to the user.
+    * I had to do a lot of testing about where to use os.system("clear") and when to call the display functions. Eventually I got it displaying exactly as I want except for one small detail which is in the unfixed bugs section.
+
+5. An error message displayed the first few attempts I made at deployment. The error message was: can't open file '/app/run.py': [Errno 2] No such file or director.
+    * I did an initial search and found a lot of quite dense content so I decided to try some simple things before asking for help.
+    * I noticed the file name in the error message was run.py and I had named my file hangman.py, so I thouht I might have broken the naming convention for the primary python file. I renamed it and saved, commited and pushed to gitpod.
+    * I tried deploying again. Perhaps too quickly because I got the same error.
+    * Finally I tried and deployed enabling automatic deployment and it worked. 
 
 ### **Unfixed Bugs**
+1. In the validate_user_input function, I initially had some feedback that displayed a message to tell the user their guess was correct or incorrect. At first this displayed just fine, albeit above the hangman, not below where I would have liked. After implementing os.system("clear") these messages stopped displaying and I was unable to find a way to display them without getting rid of the clear method. 
 
-## **Validators**
-* PEP8
+    * In the end, I prefer to have the terminal cleared at each step as it looks more readable and clear for the user. The user's guess is clearly displayed after each input and there are multiple ways that they can read their guesses as being correct or incorrect without the written message, ie. the hangman, the lives count the correct letters and incorrect letters list. So I decided to keep the clear method active instead. 
 
 ## **Deployment**
 
