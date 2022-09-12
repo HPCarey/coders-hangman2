@@ -4,18 +4,15 @@
 Coder's Hangman is a terminal based game designed to give students something fun, absorbing and easy to do while they take a quick break from coding. It also allows them to keep familiarising themselves with code-based vocabulary while they taking a break from actual coding.
 
 
-Visit the live website here - [Coder's Hangman]().
+Visit the live website here - [Coder's Hangman](https://coders-hangman.herokuapp.com/).
 
 ## **Table of Contents**
  * [**Planning Stage**](#planning-stage)
-   * User Goals
  * [**Features**](#features)
  * [**Technologies Used**](#technologies-used)
  * [**Libraries Used**](#libraries-used)
  * [**Testing**](#testing)
  * [**Bugs**](#bugs)
-   * Fixed Bugs
-   * Unfixed Bugs
  * [**Validators**](#validators)
  * [**Deployment**](#deployment)
  * [**Credits**](#credits)
@@ -69,8 +66,17 @@ Visit the live website here - [Coder's Hangman]().
 * [Heroku](https://www.heroku.com/)
 * [lucidchart](https://www.lucidchart.com/pages/)
 * [patorjk](https://patorjk.com/software/taag/#p=display&f=Standard&t=Type%20Something%20)
+* [Ascii.co.uk](https://ascii.co.uk/art/hangman)
 * [PEP8](http://pep8online.com/)
 ## **Testing**
+### PEP 8 Online
+
+The [PEP8](http://pep8online.com/) Validator Service was used to validate every Python file in the project to ensure there were no major errors in the code.
+
+Initial tests showed no errors for the word.py file contiaining the word list for hangman, but quite a few errors for the main run.py file.
+
+![PEP8]().
+* No errors or warnings were found during the testing of the code in PEP8
 
 ## **Bugs**
 
@@ -83,19 +89,51 @@ Visit the live website here - [Coder's Hangman]().
 
 ## **Deployment**
 
-* Steps to deploy:
+### Steps to deploy:
+
+1. Log in to [Heroku](https://id.heroku.com).
+2. From the dashboard, click the button labelled New in the top right corner and from the drop-down menu select Create New App.
+3. Enter a name for the app and select your region.
+4. Click Create App.                  
+5. Find the Settings Tab and scroll down to Config Vars.
+6. Click Reveal Config Vars and enter PORT into the Key box and 8000 into the Value box before clicking Add. 
+7. Scroll down to the Buildpack section click Add Buildpack.
+8. Select python and click Save Changes.
+9. Next select node.js and Save Changes. 
+10. Ensure python is the first buildpack listed and is above node.js.
+11. Scroll to the top of the page and navigate to the Deploy tab.
+12. Select Github as the deployment method.
+14. Search for the repository name and click the connect button.
+15. Scroll to the bottom of the deploy page and select Enable Automatic Deploys. 
+
 
 ## **Credits**
 I used the following resources to help me plan, build and fix bugs in my project.
 
-* [How to Build a Hangman Game with Python](https://www.youtube.com/watch?v=JNXmCOumNw0&ab_channel=CBTNuggets)
-* [Python Hangman Beginner to Advanced](https://www.youtube.com/watch?v=3_CX0aD9Fdg&ab_channel=SanjinDedic)
-* [12 Beginner Python Projects - Coding Course](https://www.youtube.com/watch?v=8ext9G7xspg&ab_channel=freeCodeCamp.org)
-* [Python Basics Project Assignment: How To Create Hangman in under 10 minutes!](https://www.youtube.com/watch?v=ynwB-QfOPRw&ab_channel=ShaunHalverson)
-* [How to build HANGMAN with Python in 10 MINUTES](https://www.youtube.com/watch?v=m4nEnsavl6w&ab_channel=Kite)
+* [How to Build a Hangman Game with Python](https://www.youtube.com/watch?v=JNXmCOumNw0&ab_channel=CBTNuggets) : 
+This video was useful to see a very basic version of the code needed without much frills and styling. The method to display the guessed and unguessed letters using a for loop to iterate through the word was really useful in particular.
 
-websites:
+
+
+* [Python Hangman Beginner to Advanced](https://www.youtube.com/watch?v=3_CX0aD9Fdg&ab_channel=SanjinDedic) : 
+This video was also useful to see the process of making a very simple game and then gradually adding more features to make it more user friendly and interesting. I particularly liked that the vlogger used os.system("clear") to clear the terminal after each user action, making the terminal less cluttered and more readable.
+
+* [12 Beginner Python Projects - Coding Course](https://www.youtube.com/watch?v=8ext9G7xspg&ab_channel=freeCodeCamp.org):
+This video helped me to research project ideas and eventually choose hangman for my project. The hangman demonstration in this video clearly showed me the basic idea and blueprint of the code I would need and that it was as simple as importing a word list from anohter py file and using the  random module to generate a word from that list. 
+* [Python Basics Project Assignment: How To Create Hangman in under 10 minutes!](https://www.youtube.com/watch?v=ynwB-QfOPRw&ab_channel=ShaunHalverson):
+The approach in this video became the main blueprint for my own approach to building a hangman app. I didn't want to write my code all in one or 2 very comlpicated functions, but rather wanted to write smaller pieces of simple code in clearly labelled functions so that it would be more readable for me and anyone else who would need to read the code. I also wanted to challenge myself by calling the different functions at when needed in the code. 
+
+* [How to build HANGMAN with Python in 10 MINUTES](https://www.youtube.com/watch?v=m4nEnsavl6w&ab_channel=Kite):
+This video was very clear and helped clarify some of the methods for building the game so that I could approach it in a more independent way. I also saw the basic structure for a replay_game function in this video and was able to use that as my starting point for building that function.  
+
+### Websites:
+I used the following website pages to help me make a list of some programming related terminology for the hangman word list. 
+
 [Python related vocab](https://www.pythonforbeginners.com/python-glossary)
+
 [w3schools python glossary](https://www.w3schools.com/python/python_ref_glossary.asp)
 
+I took the hangman art design from this page: 
+
+[Ascii.co.uk](https://ascii.co.uk/art/hangman)
 
