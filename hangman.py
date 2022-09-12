@@ -17,11 +17,9 @@ game_word = ""
 game_over = False
 
 
-
-
 """
-Will return a randomly selected word from our predefine
-list of acceptable words
+Will return a randomly selected word from the predefined
+list of words in the word.py file.
 """
 
 
@@ -34,7 +32,7 @@ def get_word():
 
 
 """
-Displays the hidden word to user
+Displays the hidden word to user and the correct letters once guessed
 """
 
 
@@ -48,13 +46,11 @@ def display_word():
             print(letter, end=" ")
         else:
             print("_", end=" ")
-    print("")
-
+    print("\n")
 
 """
-Checks the user has typed only one alphabet character and not
-multiple charaters and/or numbers.
-Warns user if they choose a letter they have already chosen.
+Prints out different stages of the hangman based on
+the user's number of lives.
 """
 
 
@@ -65,67 +61,67 @@ def display_hangman():
         print(
             """
     ______________
-     |/      
-     |      
-     | 
-     |       
-     |      
+     |/
+     |
+     |
+     |
+     |
      |
   ___|___
 
 """)
     elif lives == 5:
         print(
-    """
-     ____________
+              """
+    _____________
      |/      |
      |      (_)
-     |       
-     |   
-     |        
+     |
+     |
+     |
      |
   ___|___
 """)
     elif lives == 4:
         print(
-    """
-     ____________
+              """
+    _____________
      |/      |
      |      (_)
      |       |
      |       |
-     |        
+     |
      |
   ___|___
 """)
     elif lives == 3:
         print(
-    """
-     ____________
+              """
+    _____________
      |/      |
      |      (_)
      |      \|
      |       |
-     |        
+     |
      |
   ___|___
 """)
     elif lives == 2:
         print(
-    """
-     ____________
+              """
+    _____________
      |/      |
      |      (_)
      |      \|/
      |       |
-     |        
+     |
      |
   ___|___
 """)
     elif lives == 1:
         print(
-    """
-     ____________
+             """
+    _____________
      |/      |
      |      (_)
      |      \|/
@@ -136,8 +132,8 @@ def display_hangman():
 """)
     elif lives == 0:
         print(
-    """
-     ____________
+             """
+    _____________
      |/      |
      |      (_)
      |      \|/
@@ -146,6 +142,12 @@ def display_hangman():
      |
   ___|___
 """)
+
+"""
+Checks the user has typed only one alphabet character and not
+multiple charaters and/or numbers.
+Warns user if they choose a letter they have already chosen.
+"""
 
 
 def validate_user_input():
@@ -158,25 +160,33 @@ def validate_user_input():
             os.system("clear")
             display_hangman()
             display_word()
-            print("Letter must be one character, not more or less.\n")       
+            print(f"Incorrect guesses: {wrong_letters}\n ")
+            print("Letter must be one character, not more or less.\n")
+            print(f'You have {lives} lives.\n')
         elif user_guess.isalpha():
             if user_guess in guessed_letters or user_guess in wrong_letters:
                 os.system("clear")
                 display_hangman()
                 display_word()
-                print(f'You have already guessed {user_guess}.\n')       
+                print(f"Incorrect guesses: {wrong_letters}\n ")
+                print(f'You have already guessed {user_guess}.\n')
+                print(f'You have {lives} lives.\n')
             else:
                 valid_input = True
         else:
             os.system("clear")
             display_hangman()
             display_word()
-            print("Letter must be an alphabet character\n")         
+            print(f"Incorrect guesses: {wrong_letters}\n ")
+            print("Letter must be an alphabet character\n")
+            print(f'You have {lives} lives.\n')
     return user_guess
 
 
 """
-Checks is user's guess is in the word and takes a life if not
+Checks whether user's guess is in the word and takes a life if not.
+If user guess is correct, appends user guess to guessed_letters variable.
+If user guess is incorrect, appends user guess to wrong_letters varable
 """
 
 
@@ -188,20 +198,22 @@ def validate_user_guess():
 
     user_guess = validate_user_input()
     if user_guess in game_word:
+        print(f'Correct! {user_guess} is in the word.\n')
         user_correct is True
         guessed_letters.append(user_guess)
-        print(f'Correct! {user_guess} is in the word.\n')
     else:
         user_correct is False
-        wrong_letters.append(user_guess)
-        lives -= 1
         print(f'Hard luck {user_guess} is not in the word!\n')
         print(f'You have {lives} lives.\n')
+        wrong_letters.append(user_guess)
+        lives -= 1
+
     return user_correct
 
 
 """
-Checks for the status of the lives and the word letters to determine game over
+Checks for the status of the lives and the word letters to determine game over.
+If game over is true, calls the replay_game function.
 """
 
 
@@ -226,14 +238,21 @@ def check_game_over():
                 break
         if word_guessed:
             game_over = True
-            os.system("clear") 
+            os.system("clear")
             display_hangman()
             display_word()
             print('You guessed the word! Congratulations\n')
             print(f'The word was {game_word}\n')
             replay_game()
     os.system("clear")
-          
+
+
+"""
+Gives user an input option to either play another game or
+exit the programme.
+If user selects option to play again,
+resets global variables to empty values and resets lives to 6.
+"""
 
 
 def replay_game():
@@ -243,7 +262,7 @@ def replay_game():
     global guessed_letters
     global game_word
     restart_game = False
-    
+
     while not restart_game:
         restart = input('Would you like to play again? Y/N \n')
         restart = restart.strip().upper()
@@ -276,27 +295,26 @@ def main():
         display_hangman()
         display_word()
 
-
         if len(wrong_letters) > 0:
             print(f"Incorrect guesses: {wrong_letters}\n ")
             print(f'You have {lives} lives.\n')
-            
-        validate_user_guess()   
+        validate_user_guess()
         check_game_over()
 
 
 if __name__ == '__main__':
-    """Will only be called when you run the python program from the terminal or an IDE like PyCharms"""
+    """Will only be called when you run the python program
+     from the terminal or an IDE like PyCharms"""
 
     print("""Hello! Welcom to CODER'S HANGMAN!\n
 Test your knowledge of programming related vocabulary!\n
 Rules:
 1. Type a letter and click enter to make a guess for the mystery word.
-2. You have 6 lives. 
+2. You have 6 lives.
 3. Once you have run out of lives and you guess an incorrect letter,
 you will lose the game and the full hangman will be displayed.
  \n""")
 
-    input("PRESS ANY KEY TO START THE GAME.\n >>> ")
+    input("PRESS ANY KEY TO START THE GAME.\n >>>\n")
     os.system("clear")
     main()
