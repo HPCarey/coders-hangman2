@@ -306,7 +306,7 @@ if __name__ == '__main__':
     """Will only be called when you run the python program
      from the terminal or an IDE like PyCharms"""
 
-    print("""Hello! Welcom to CODER'S HANGMAN!\n
+    print("""Hello! Welcome to CODER'S HANGMAN!\n
 Test your knowledge of programming related vocabulary!\n
 Rules:
 1. Type a letter and click enter to make a guess for the mystery word.

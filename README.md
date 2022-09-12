@@ -73,10 +73,34 @@ Visit the live website here - [Coder's Hangman](https://coders-hangman.herokuapp
 
 The [PEP8](http://pep8online.com/) Validator Service was used to validate every Python file in the project to ensure there were no major errors in the code.
 
-Initial tests showed no errors for the word.py file contiaining the word list for hangman, but quite a few errors for the main run.py file.
+Initial tests showed no errors for the word.py file contiaining the word list for hangman, but quite a few errors for the main run.py file. Most of these were easliy fixed blank space errors or blank line errors and amounted to no significant problems running the code. 
+
+After fixing all but one of the errors, I was left with a 
 
 ![PEP8]().
 * No errors or warnings were found during the testing of the code in PEP8
+
+### User Stories
+1. As a visiting user, I want to play a game of hangman.
+    * Once the program starts running, the user will see a welcome message explaining the game and the rules and inviting them to press any key if they wish to start playing.  
+2.  As a user I want to know how many letters are in the word.
+    * After clicking any key, the terminal will display a set of dashed lines to represent the letters of the word they need to guess. 
+    * A hangman image without the man will also be displayed as well as a an input invitation for the user to "Guess a letter".
+3.  As a user, I want to know whether my guess is correct and to see its position in the word.
+    * When the user guesses a letter correctly it will be displayed in it's correct position instead of the dashed lines. 
+4. As a user, I want to know when my guess is incorrect.
+    * When the user guesses a letter that is not in the word it will be displayed in the incorrect guesses list.
+    * The user will also be able to see their lives being reduced with each incorrect guess both by the hangman display and the message counting the number of lives for the user.
+
+### Manual Testing
+1. User input - check that all user inputs are correct and if not that the appropriate error message is shown.
+    * Ensure error message shows when user enters to many or not enough characters.
+    * Ensure error message informs user that they must choose a letter when they choose a non- alphabetic character
+    * Ensure error message informs user when they repeat a guess.
+3. Score
+    * Ensure that lives and guessed letters lists are not affected by incorrect user input.
+    * Check that terminal clears after each user input and only displays the currect relevant information to the user. 
+    * Ensure that hangman display matches lives count. 
 
 ## **Bugs**
 
