@@ -57,7 +57,41 @@ Visit the live website here - [Coder's Hangman](https://coders-hangman.herokuapp
 ### The display
 ![Game Display](assets/readme/game_display.png)
 * The display shows the user an empty hangman and some dashes to represent the unknown word and its number of letters.
-* The input instruction tells the user to guess a letter
+* The input instruction tells the user to guess a letter.
+
+### Correct and Incorrect User Guesses
+![Correct Display](assets/readme/correct_display.png)
+* The display will show the user the correctly guessed letters in their position in the word.
+
+
+![Incorrect Display](assets/readme/incorrect_display.png)
+* When the user's guess is incorrect the hangman display will develop to indicate a life was lost.
+* There will also be a life count on display at all times so the user can see exactly how many lives they have and when they lose a life
+* The incorrect letters that the user guesses  will also be displayed in a list immediately after they are guessed to indicate that the user's guess was wrong and also as a visual reminder of their previous guessed to avoid repitition.
+
+### User wins
+![User Wins](assets/readme/you_won%20message.png)
+* When the user guesses all the correct letters in the word the word will be displayed in full.
+* A message informing the user they won will be displayed along with a message indicating the full word.
+* The user will be invited to input Y to play again or N to exit.
+* If the user inputs Y, the game display will be shown with a different word represented by dashes.
+* If the user inputs N, there will be a goodbye message and the program will exit.
+
+### User Loses
+![User Loses](assets/readme/you_lost_message.png)
+* If the user runs out of guesses before they guess the word, the full hangman image will be displayed.
+* A consolidation message informing the user that they lost will also be displayed.
+* As in the case of user winning, they will be invited to play again or exit in the same way as above.
+
+
+
+
+
+
+
+
+
+
 
 ### The Input Validation
 

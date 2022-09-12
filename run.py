@@ -163,7 +163,7 @@ def validate_user_input():
             display_hangman()
             display_word()
             print(f"Incorrect guesses: {wrong_letters}\n ")
-            print(F'You typed {user_guess}')
+            print(f'You typed {user_guess}\n')
             print("Letter must be one character, not more or less.\n")
             print(f'You have {lives} lives.\n')
         elif user_guess.isalpha():
@@ -181,7 +181,7 @@ def validate_user_input():
             display_hangman()
             display_word()
             print(f"Incorrect guesses: {wrong_letters}\n ")
-            print(F'You typed {user_guess}')
+            print(f'You typed {user_guess}\n')
             print("Letter must be an alphabet character\n")
             print(f'You have {lives} lives.\n')
     return user_guess
@@ -319,6 +319,6 @@ Rules:
 you will lose the game and the full hangman will be displayed.
  \n""")
 
-    input("PRESS ANY KEY TO START THE GAME.\n >>>\n")
+    input("PRESS ENTER TO START THE GAME.\n >>>\n")
     os.system("clear")
     main()
