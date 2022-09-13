@@ -115,7 +115,6 @@ Visit the live website here - [Coder's Hangman](https://coders-hangman.herokuapp
 * [Gitpod](https://gitpod.io/)
 * [Heroku](https://www.heroku.com/)
 * [lucidchart](https://www.lucidchart.com/pages/)
-* [patorjk](https://patorjk.com/software/taag/#p=display&f=Standard&t=Type%20Something%20)
 * [Ascii.co.uk](https://ascii.co.uk/art/hangman)
 * [PEP8](http://pep8online.com/)
 ## **Testing**
@@ -257,4 +256,19 @@ I used the following website pages to help me make a list of some programming re
 I took the hangman art design from this page: 
 
 [Ascii.co.uk](https://ascii.co.uk/art/hangman)
+
+### Articles
+The following articles helped me to understand and apply certain features and concepts.
+* [w3schools: Lists](https://www.w3schools.com/python/python_lists.asp)
+
+* [Programmiz.com: List append()](https://www.programiz.com/python-programming/methods/list/append)
+
+* [Stack Overflow: Trying to re-loop a game](https://stackoverflow.com/questions/35069757/trying-to-re-loop-a-game-only-if-a-user-says-to)
+
+* [Codefather: ](https://codefather.tech/blog/if-name-main-python/)
+
+* [Programmiz.com: break an continue](https://www.programiz.com/python-programming/break-continue)
+
+* [Free Code Camp: How to Write Good Commit Messages: A Practical Git Guide](https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-guide/)
+
 
