@@ -73,9 +73,6 @@ Visit the live website here - [Coder's Hangman](https://coders-hangman.herokuapp
 ![User Wins](assets/readme/you_won%20message.png)
 * When the user guesses all the correct letters in the word the word will be displayed in full.
 * A message informing the user they won will be displayed along with a message indicating the full word.
-* The user will be invited to input Y to play again or N to exit.
-* If the user inputs Y, the game display will be shown with a different word represented by dashes.
-* If the user inputs N, there will be a goodbye message and the program will exit.
 
 ### User Loses
 ![User Loses](assets/readme/you_lost_message.png)
@@ -83,17 +80,18 @@ Visit the live website here - [Coder's Hangman](https://coders-hangman.herokuapp
 * A consolidation message informing the user that they lost will also be displayed.
 * As in the case of user winning, they will be invited to play again or exit in the same way as above.
 
-
-
-
-
-
-
-
-
+### Replay function
+* Once the user has either won or lost the game, they will be invited to input Y to play again or N to exit.
+* If the user inputs Y, the game display will be shown with a different word represented by dashes.
+![Default Game Settings](assets/readme/game_display.png)
+* All game features, including lives correct and incorrect guess lists and hangman display will be reset to the default game settings.
+* If the user inputs N, there will be a goodbye message and the program will exit.
+![Exit Game](assets/readme/exit_screen.png)
 
 
 ### The Input Validation
+* User is informed when their input is invalid and asked to resubmit there input.
+* For more details on how the app handles data validation, see  [**Manual Testing**](#manual-testing) section.
 
 
 ## **Future Features**
@@ -140,14 +138,22 @@ After fixing all but one of the errors, I was left with a
 ### **Manual Testing**
 1. User input - check for valid user inputs and if not valid ensure the appropriate error message is shown.
     * Ensure error message displays when user enters too many or not enough characters.
+    ![Character Length Error](assets/readme/char_len_error.png)
+    ![Character Length Error 2](assets/readme/char_len_error_2.png)
     * Ensure error message informs user that they must choose a letter when they choose a non- alphabetic character.
+     ![Character Length Error 2](assets/readme/not_alpha_input_error.png)
+
     * Ensure error message informs user when they repeat a guess.
-2. Score
-    * Ensure that lives and guessed letters lists are not affected by incorrect user input.
+    ![Repeated Guess](assets/readme/already_guesses_correct.png)
+    * Check for user validation message for replay game function if the user doesn't input either Y or N. 
+    ![Incorrect Input Replay](assets/readme/incorrect_input_replay.png)
+    ![Incorrect Input Replay](assets/readme/incorrect_input_replay_2.png)
     * Check that terminal clears after each user input and only displays the currect relevant information to the user. 
+2. Score
+    * Ensure that lives and guessed letter lists are not affected by incorrect user input or repeated guesses.
+    ![Repeated Incorrect Guess](assets/readme/already_guessed_incorrect.png)
     * Ensure that hangman display matches lives count. 
     * Ensure that previously guessed letters are added to the correct lists and displayed to the user accordingly.
-    
 
 ## **Bugs**
 
