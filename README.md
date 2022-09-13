@@ -96,9 +96,16 @@ Visit the live website here - [Coder's Hangman](https://coders-hangman.herokuapp
 
 ## **Future Features**
 ### Set Difficulty
+* Allow user to select game difficulty in the main menu before the game starts and increase or decrease lives according to their chosen difficulty.
   * Easy = 9 lives
   * Normal = 7 lives
   * Hard = 5 lives
+### Guess entire word
+* Add a feature where the user can guess the word as well as individual letters. 
+### Score system and database
+* Ask user to input name.
+* Allocate a score based on no. of user wins
+* Use Google Sheets and API to store and display a leaderboard to users.
 
 ## **Technologies Used** 
 ### Languages 

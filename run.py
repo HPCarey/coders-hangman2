@@ -3,6 +3,7 @@ import time
 import os
 import sys
 from words import words
+from hangman import HANGMAN
 
 # Global variables
 
@@ -55,91 +56,8 @@ def display_hangman():
     """
     global lives
 
-    if lives == 6:
-        print(
-            """
-    ______________
-     |/
-     |
-     |
-     |
-     |
-     |
-  ___|___
-
-""")
-    elif lives == 5:
-        print(
-              """
-    _____________
-     |/      |
-     |      (_)
-     |
-     |
-     |
-     |
-  ___|___
-""")
-    elif lives == 4:
-        print(
-              """
-    _____________
-     |/      |
-     |      (_)
-     |       |
-     |       |
-     |
-     |
-  ___|___
-""")
-    elif lives == 3:
-        print(
-              """
-    _____________
-     |/      |
-     |      (_)
-     |      \|
-     |       |
-     |
-     |
-  ___|___
-""")
-    elif lives == 2:
-        print(
-              """
-    _____________
-     |/      |
-     |      (_)
-     |      \|/
-     |       |
-     |
-     |
-  ___|___
-""")
-    elif lives == 1:
-        print(
-             """
-    _____________
-     |/      |
-     |      (_)
-     |      \|/
-     |       |
-     |        \\
-     |
-  ___|___
-""")
-    elif lives == 0:
-        print(
-             """
-    _____________
-     |/      |
-     |      (_)
-     |      \|/
-     |       |
-     |      / \\
-     |
-  ___|___
-""")
+    index = 6 - lives
+    print(HANGMAN[index])
 
 
 
