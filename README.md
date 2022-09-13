@@ -1,7 +1,7 @@
 # **Coder's Hangman** 
  
 ## Purpose of the project
-Coder's Hangman is a terminal based game designed to give students something fun, absorbing and easy to do while they take a quick break from coding. It also allows them to keep familiarising themselves with code-based vocabulary while they taking a break from actual coding.
+Coder's Hangman is a terminal based game designed to give students something fun, absorbing and easy to do while they take a quick break from coding. It also allows them to keep familiarising themselves with code-based vocabulary while taking a break from actual coding.
 
 
 Visit the live website here - [Coder's Hangman](https://coders-hangman.herokuapp.com/).
@@ -16,14 +16,13 @@ Visit the live website here - [Coder's Hangman](https://coders-hangman.herokuapp
     * [**User Stories Testing**](#user-stories-testing)
     * [**Manual Testing**](#manual-testing)
     * [**Bugs**](#bugs)
- 
  * [**Deployment**](#deployment)
  * [**Credits**](#credits)
 
 ## **Planning Stage**
 ### Intended Users
 * The intended user is any student or programmer who needs to take a quick break from a piece of code that might be causing them problems.
-* The user would rather take a quick micro-break from the code for a few mintues in order not to lose focus on the problem completely, but needs a bit of a reset in orde to focus on it. 
+* The user would rather take a quick micro-break from the code for a few mintues in order not to lose focus on the problem completely, but needs a bit of a reset in order to focus on it. 
 
 ### **User Stories**
  * As a visiting user, I want to play a game of hangman.
@@ -66,26 +65,27 @@ Visit the live website here - [Coder's Hangman](https://coders-hangman.herokuapp
 
 ![Incorrect Display](assets/readme/incorrect_display.png)
 * When the user's guess is incorrect the hangman display will develop to indicate a life was lost.
-* There will also be a life count on display at all times so the user can see exactly how many lives they have and when they lose a life
-* The incorrect letters that the user guesses  will also be displayed in a list immediately after they are guessed to indicate that the user's guess was wrong and also as a visual reminder of their previous guessed to avoid repitition.
+* There will also be a life count on display at all times so the user can see exactly how many lives they have and when they lose a life.
+* The incorrect letters that the user guesses  will also be displayed in a list immediately after they are guessed to indicate that the user's guess was wrong and also as a visual reminder of their previous guesses to avoid repitition.
 
 ### User wins
 ![User Wins](assets/readme/you_won%20message.png)
-* When the user guesses all the correct letters in the word the word will be displayed in full.
+* When the user guesses all the correct letters in the word the word, will be displayed in full.
 * A message informing the user they won will be displayed along with a message indicating the full word.
 
 ### User Loses
 ![User Loses](assets/readme/you_lost_message.png)
 * If the user runs out of guesses before they guess the word, the full hangman image will be displayed.
 * A consolidation message informing the user that they lost will also be displayed.
-* As in the case of user winning, they will be invited to play again or exit in the same way as above.
 
 ### Replay function
 * Once the user has either won or lost the game, they will be invited to input Y to play again or N to exit.
 * If the user inputs Y, the game display will be shown with a different word represented by dashes.
+
 ![Default Game Settings](assets/readme/game_display.png)
 * All game features, including lives correct and incorrect guess lists and hangman display will be reset to the default game settings.
 * If the user inputs N, there will be a goodbye message and the program will exit.
+
 ![Exit Game](assets/readme/exit_screen.png)
 
 
@@ -104,7 +104,7 @@ Visit the live website here - [Coder's Hangman](https://coders-hangman.herokuapp
 * Add a feature where the user can guess the word as well as individual letters. 
 ### Score system and database
 * Ask user to input name.
-* Allocate a score based on no. of user wins
+* Allocate a score based on no. of user wins.
 * Use Google Sheets and API to store and display a leaderboard to users.
 
 ## **Technologies Used** 
@@ -140,7 +140,7 @@ Initial tests showed no errors for the word.py file contiaining the word list fo
 
 ### **User Stories Testing**
 1. As a visiting user, I want to play a game of hangman.
-    * Once the program starts running, the user will see a welcome message explaining the game and the rules and inviting them to press any key if they wish to start playing.  
+    * Once the program starts running, the user will see a welcome message explaining the game and the rules and inviting them to press the enter key if they wish to start playing.  
 2.  As a user I want to know how many letters are in the word.
     * After clicking the enter key, the terminal will display a set of dashed lines to represent the letters of the word they need to guess. 
     * A hangman image without the man will also be displayed as well as a an input invitation for the user to "Guess a letter".
@@ -149,23 +149,35 @@ Initial tests showed no errors for the word.py file contiaining the word list fo
 4. As a user, I want to know when my guess is incorrect.
     * When the user guesses a letter that is not in the word it will be displayed in the incorrect guesses list.
     * The user will also be able to see their lives being reduced with each incorrect guess both by the hangman display and the message counting the number of lives for the user.
+5. As a user I want to know which letters I've already guessed.
+    * The Incorrect letters list will always be displayed to the user throughout the game.
+    * The correct letters will be displayed in the word alongside dashed lines for unguessed letters. 
+6. As a user, I want to know how many lives I have left before I lose.
+    * The lives will be visually represented by the hangman image which will be displayed for the duration of the game.
+    * The lives will also be displayed to theuser numerically in a print statement for the duration of the game.
 
 ### **Manual Testing**
 1. User input - check for valid user inputs and if not valid ensure the appropriate error message is shown.
     * Ensure error message displays when user enters too many or not enough characters.
+
     ![Character Length Error](assets/readme/char_len_error.png)
     ![Character Length Error 2](assets/readme/char_len_error_2.png)
     * Ensure error message informs user that they must choose a letter when they choose a non- alphabetic character.
+
      ![Character Length Error 2](assets/readme/not_alpha_input_error.png)
 
     * Ensure error message informs user when they repeat a guess.
+
     ![Repeated Guess](assets/readme/already_guesses_correct.png)
     * Check for user validation message for replay game function if the user doesn't input either Y or N. 
+    
     ![Incorrect Input Replay](assets/readme/incorrect_input_replay.png)
     ![Incorrect Input Replay](assets/readme/incorrect_input_replay_2.png)
+
     * Check that terminal clears after each user input and only displays the currect relevant information to the user. 
 2. Score
     * Ensure that lives and guessed letter lists are not affected by incorrect user input or repeated guesses.
+
     ![Repeated Incorrect Guess](assets/readme/already_guessed_incorrect.png)
     * Ensure that hangman display matches lives count. 
     * Ensure that previously guessed letters are added to the correct lists and displayed to the user accordingly.
@@ -179,9 +191,9 @@ I have detailed some of the sources I used to fix bugs in the Credit section. So
 Source: [stack overflow](https://stackoverflow.com/questions/14639077/how-to-use-sys-exit-in-python)
  
 
-2. I had a lot of issues with the diplay_word function whhich wasn't correctly displaying the random word for the hangman game or the user's guesses in the random word.
+2. I had a lot of issues with the diplay_word function which wasn't correctly displaying the random word for the hangman game or the user's guesses in the random word.
     * By looking through the problems in the gitpod  terminal, I was able to see that I had named variable that weren't being used in the function. I was trying to use the user_guess variable in the for loop but it ended up causing an error. 
-    * Once I started to use a local variable letter it worked. 
+    * Once I started to use a local variable "letter" it worked. 
 
 3. Another bug was that the user's guesses were decrementing the lives even when they were repeat guesses.
     * I had to watch through some youtube videos and in the end I ended up making global variables to store these values in so that they would be accessible from all the functions. And used the append() method to add the user guesses.
@@ -199,6 +211,7 @@ Source: [stack overflow](https://stackoverflow.com/questions/14639077/how-to-use
 1. In the validate_user_input function, I initially had some feedback that displayed a message to tell the user their guess was correct or incorrect. At first this displayed just fine, albeit above the hangman, not below where I would have liked. After implementing os.system("clear") these messages stopped displaying and I was unable to find a way to display them without getting rid of the clear method. 
 
     * In the end, I prefer to have the terminal cleared at each step as it looks more readable and clear for the user. The user's guess is clearly displayed after each input and there are multiple ways that they can read their guesses as being correct or incorrect without the written message, ie. the hangman, the lives count the correct letters and incorrect letters list. So I decided to keep the clear method active instead. 
+2. The code works exactly as I want it to. However it could use some refactoring and simplifying as some problems were solved as I went along and looking back over the code there are a lot of repeated instructions.    
 
 ## **Deployment**
 
@@ -210,8 +223,8 @@ Source: [stack overflow](https://stackoverflow.com/questions/14639077/how-to-use
 2. Click Use this Template and add a repository name.
 3. Click Create Repository from template
 4. While using this template ensure all inputs have \n to ensure deployment to heroku.
-In terminal type pip3 freeze > requirements.txt press enter to update this file.
-Remembering to add , commit and push all changes to github before starting steps to deploy to Heroku
+5. In terminal type pip3 freeze > requirements.txt press enter to update this file.
+6. Add , commit and push all changes to github before starting steps to deploy to Heroku
 
 #### **Heroku**
 1. Log in to [Heroku](https://id.heroku.com).
@@ -241,7 +254,7 @@ This video was also useful to see the process of making a very simple game and t
 * [12 Beginner Python Projects - Coding Course](https://www.youtube.com/watch?v=8ext9G7xspg&ab_channel=freeCodeCamp.org):
 This video helped me to research project ideas and eventually choose hangman for my project. The hangman demonstration in this video clearly showed me the basic idea and blueprint of the code I would need and that it was as simple as importing a word list from anohter py file and using the  random module to generate a word from that list. 
 * [Python Basics Project Assignment: How To Create Hangman in under 10 minutes!](https://www.youtube.com/watch?v=ynwB-QfOPRw&ab_channel=ShaunHalverson):
-The approach in this video became the main blueprint for my own approach to building a hangman app. I didn't want to write my code all in one or 2 very comlpicated functions, but rather wanted to write smaller pieces of simple code in clearly labelled functions so that it would be more readable for me and anyone else who would need to read the code. I also wanted to challenge myself by calling the different functions at when needed in the code. 
+The approach in this video became the main blueprint for my own approach to building a hangman app. I didn't want to write my code all in one or two very comlpicated functions, but rather wanted to write smaller pieces of simple code in clearly labelled functions so that it would be more readable for me and anyone else who would need to read the code. I also wanted to challenge myself by calling the different functions at when needed in the code. 
 
 * [How to build HANGMAN with Python in 10 MINUTES](https://www.youtube.com/watch?v=m4nEnsavl6w&ab_channel=Kite):
 This video was very clear and helped clarify some of the methods for building the game so that I could approach it in a more independent way. I also saw the basic structure for a replay_game function in this video and was able to use that as my starting point for building that function.  
@@ -267,7 +280,7 @@ The following articles helped me to understand and apply certain features and co
 
 * [Codefather: ](https://codefather.tech/blog/if-name-main-python/)
 
-* [Programmiz.com: break an continue](https://www.programiz.com/python-programming/break-continue)
+* [Programmiz.com: break and continue](https://www.programiz.com/python-programming/break-continue)
 
 * [Free Code Camp: How to Write Good Commit Messages: A Practical Git Guide](https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-guide/)
 
