@@ -18,9 +18,6 @@ game_word = ""
 game_over = False
 
 
-
-
-
 def get_word():
     """
     Will return a randomly selected word from the predefined
@@ -55,10 +52,8 @@ def display_hangman():
     the user's number of lives.
     """
     global lives
-
     index = 6 - lives
     print(HANGMAN[index])
-
 
 
 def validate_user_input():
@@ -126,7 +121,8 @@ def validate_user_guess():
 
 def check_game_over():
     """
-    Checks for the status of the lives and the word letters to determine game over.
+    Checks for the status of the lives and the word letters to
+    determine game over.
     If game over is true, calls the replay_game function.
     """
     global lives

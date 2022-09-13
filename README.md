@@ -124,17 +124,26 @@ Visit the live website here - [Coder's Hangman](https://coders-hangman.herokuapp
 The [PEP8](http://pep8online.com/) Validator Service was used to validate every Python file in the project to ensure there were no major errors in the code.
 
 Initial tests showed no errors for the word.py file contiaining the word list for hangman, but quite a few errors for the main run.py file. Most of these were easliy fixed blank space errors or blank line errors and amounted to no significant problems running the code. 
+### run.py Initial Report
+![PEP8](assets/readme/pep8_hangman_file.png)
+![PEP8](assets/readme/pep8_hangman_file_2.png)
+### hangman.py Initial Report
+![PEP8](assets/readme/hangman_file_errors.png)
 
-After fixing all but one of the errors, I was left with a 
+* In the final PEP8 reports, no errors were found in any of the files.
 
-![PEP8]().
-* No errors or warnings were found during the testing of the code in PEP8
+### run.py file Final Test
+![PEP8](assets/readme/final_pep8_test.png)
+### words.py file
+![PEP8](assets/readme/words_final_test.png)
+### hangman.py file Final Test
+![PEP8](assets/readme/hangman_file_final_test.png)
 
 ### **User Stories Testing**
 1. As a visiting user, I want to play a game of hangman.
     * Once the program starts running, the user will see a welcome message explaining the game and the rules and inviting them to press any key if they wish to start playing.  
 2.  As a user I want to know how many letters are in the word.
-    * After clicking any key, the terminal will display a set of dashed lines to represent the letters of the word they need to guess. 
+    * After clicking the enter key, the terminal will display a set of dashed lines to represent the letters of the word they need to guess. 
     * A hangman image without the man will also be displayed as well as a an input invitation for the user to "Guess a letter".
 3.  As a user, I want to know whether my guess is correct and to see its position in the word.
     * When the user guesses a letter correctly it will be displayed in it's correct position instead of the dashed lines. 
@@ -196,6 +205,16 @@ Source: [stack overflow](https://stackoverflow.com/questions/14639077/how-to-use
 
 ### Steps to deploy:
 
+#### **Gitpod**
+
+1. Create a repository in github using the [Code Institute template](https://github.com/Code-Institute-Org/python-essentials-template). 
+2. Click Use this Template and add a repository name.
+3. Click Create Repository from template
+4. While using this template ensure all inputs have \n to ensure deployment to heroku.
+In terminal type pip3 freeze > requirements.txt press enter to update this file.
+Remembering to add , commit and push all changes to github before starting steps to deploy to Heroku
+
+#### **Heroku**
 1. Log in to [Heroku](https://id.heroku.com).
 2. From the dashboard, click the button labelled New in the top right corner and from the drop-down menu select Create New App.
 3. Enter a name for the app and select your region.
@@ -211,14 +230,11 @@ Source: [stack overflow](https://stackoverflow.com/questions/14639077/how-to-use
 14. Search for the repository name and click the connect button.
 15. Scroll to the bottom of the deploy page and select Enable Automatic Deploys. 
 
-
 ## **Credits**
 I used the following resources to help me plan, build and fix bugs in my project.
 
 * [How to Build a Hangman Game with Python](https://www.youtube.com/watch?v=JNXmCOumNw0&ab_channel=CBTNuggets) : 
 This video was useful to see a very basic version of the code needed without much frills and styling. The method to display the guessed and unguessed letters using a for loop to iterate through the word was really useful in particular.
-
-
 
 * [Python Hangman Beginner to Advanced](https://www.youtube.com/watch?v=3_CX0aD9Fdg&ab_channel=SanjinDedic) : 
 This video was also useful to see the process of making a very simple game and then gradually adding more features to make it more user friendly and interesting. I particularly liked that the vlogger used os.system("clear") to clear the terminal after each user action, making the terminal less cluttered and more readable.
